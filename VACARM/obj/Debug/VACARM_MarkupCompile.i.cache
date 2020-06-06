@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Programming\VACARM\VACARM\obj\Debug\
+F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\
 VACARM
 none
 false
 DEBUG;TRACE
-F:\Programming\VACARM\VACARM\App.xaml
-11151548125
+F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\App.xaml
+31418318161
 
-6-1340197325
-131254293103
-MainWindow.xaml;
+81195983764
+151639716179
+DeviceControl.xaml;GrayButtonResourceDictionary.xaml;MainWindow.xaml;
 
 True
 
