@@ -29,6 +29,5 @@ F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debu
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\VACARM.csproj.CopyComplete
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\VACARM.exe
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\VACARM.pdb
-F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\GrayButtonResourceDictionary.baml
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\DeviceControl.g.cs
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\DeviceControl.baml

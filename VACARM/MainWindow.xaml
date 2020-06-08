@@ -5,37 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VACARM"
         mc:Ignorable="d"
-        Title="VACARM" Height="720" Width="1280" Background="#222222" Foreground="White" FontSize="16">
+        Title="VACARM" 
+        Height="720" Width="1280"
+        Background="#222222" Foreground="White" FontSize="16">
     <Window.Resources>
-        <Style x:Key="GrayButtonStyle" TargetType="{x:Type Button}">
+        <Style x:Key="GraySquareToggleButtonStyle" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="#222222"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Margin" Value="5"/>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="4"/>
-                </Style>
-            </Style.Resources>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#333333"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style x:Key="GraySquareButtonStyle" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Background" Value="#222222"/>
-            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="3 5 3 5"/>
+            <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -45,7 +22,14 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Image Source="{TemplateBinding Content}" RenderOptions.BitmapScalingMode="Fant" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ToolTip" Value="{Binding Tag, RelativeSource={RelativeSource Self}}"/>
             <EventSetter Event="Click" Handler="toolBarSelect_Click"/>
             <Style.Resources>
                 <Style TargetType="Border">
@@ -59,80 +43,81 @@
             </Style.Triggers>
         </Style>
 
-        
+        <Style x:Key="GraySquareButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#222222"/>
+            <Setter Property="Margin" Value="3 5 3 5"/>
+            <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Image Source="{TemplateBinding Content}" RenderOptions.BitmapScalingMode="Fant" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ToolTip" Value="{Binding Tag, RelativeSource={RelativeSource Self}}"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#333333"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <BitmapImage x:Key="HandIcon" x:Shared="False" UriSource="hand.png"/>
+        <BitmapImage x:Key="LinkIcon" x:Shared="False" UriSource="link.png"/>
+        <BitmapImage x:Key="AddIcon" x:Shared="False" UriSource="add.png"/>
+        <BitmapImage x:Key="RemoveIcon" x:Shared="False" UriSource="remove.png"/>
+        <BitmapImage x:Key="RestartIcon" x:Shared="False" UriSource="restart.png"/>
+        <BitmapImage x:Key="LoadIcon" x:Shared="False" UriSource="load.png"/>
+        <BitmapImage x:Key="SaveIcon" x:Shared="False" UriSource="save.png"/>
+        <BitmapImage x:Key="PlayIcon" x:Shared="False" UriSource="play.png"/>
+        <BitmapImage x:Key="PauseIcon" x:Shared="False" UriSource="pause.png"/>
+
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="399*"/>
+        </Grid.ColumnDefinitions>
 
         <!-- Graph area -->
-        <Canvas x:Name="graphCanvas" Margin="0,0,0,185" Background="#111111"/>
+        <Canvas x:Name="graphCanvas" Grid.Column="1" Background="#111111"/>
 
-        <!-- GUI -->
-        <Grid Margin="0,504,0,0">
+        <!-- Buttons -->
+        <Grid Grid.Column="0" Height="154" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <!-- Buttons -->
-            <Grid Grid.Column="0" Margin="5,0,0,5" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                 <!-- Add Device -->
-                <Button Grid.Row="0" Grid.Column="0" Margin="5" Content="Add Device" Style="{StaticResource GrayButtonStyle}">
-
-                </Button>
-                <!-- Remove Device -->
-                <Button Grid.Row="1" Grid.Column="0" Content="Remove Device" Style="{StaticResource GrayButtonStyle}"/>
-                <!-- Restart Engine -->
-                <Button Grid.Row="2" Grid.Column="0" Content="Restart Engine" Style="{StaticResource GrayButtonStyle}"/>
-                <!-- Start/Stop -->
-                <Button Grid.Row="3" Grid.Column="0" Content="Start" Style="{StaticResource GrayButtonStyle}" />
-                <!-- Load Graph -->
-                <Button Grid.Row="0" Grid.Column="1" Content="Load Graph" Style="{StaticResource GrayButtonStyle}"/>
-                <!-- Save Graph -->
-                <Button Grid.Row="1" Grid.Column="1" Content="Save Graph" Style="{StaticResource GrayButtonStyle}"/>
-                <!-- Exit without Stopping -->
-                <Button Grid.Row="2" Grid.Column="1" Content="Exit w/o Stopping Engine" Style="{StaticResource GrayButtonStyle}"/>
-                
-                <!-- Tool Bar -->
-                <Grid x:Name="ToolBar" Grid.Row="3" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <RadioButton Grid.Column="0" Style="{StaticResource GraySquareButtonStyle}" IsChecked="True">
-                        <Image Source="F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\bin\Debug\data\hand.png"
-                               RenderOptions.BitmapScalingMode="Fant"
-                               Margin="5"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                    </RadioButton>
-                    <RadioButton Grid.Column="1" Style="{StaticResource GraySquareButtonStyle}">
-                        <Image Source="F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\bin\Debug\data\link.png"
-                               RenderOptions.BitmapScalingMode="Fant"
-                               Margin="5"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                    </RadioButton>
-                    
-                </Grid>
-            </Grid>
-            
-            <!-- Event Log -->
-            <TextBlock Grid.Column="1" Background="Black" Margin="5 0 5 10"/>
+            <RadioButton Grid.Column="0" Grid.Row="0" Tag="Hand" Content="{StaticResource HandIcon}" Style="{StaticResource GraySquareToggleButtonStyle}" IsChecked="True"/>
+            <RadioButton Grid.Column="1" Grid.Row="0" Tag="Link" Content="{StaticResource LinkIcon}" Style="{StaticResource GraySquareToggleButtonStyle}"/>
+            <Button Grid.Column="0" Grid.Row="1" Tag="Load Graph" Content="{StaticResource LoadIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <Button Grid.Column="1" Grid.Row="1" Tag="Save Graph" Content="{StaticResource SaveIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <Button Grid.Column="0" Grid.Row="2" Tag="Add Device" Content="{StaticResource AddIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <Button Grid.Column="1" Grid.Row="2" Tag="Remove Device" Content="{StaticResource RemoveIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <Button Grid.Column="0" Grid.Row="3" Tag="Restart Engine" Content="{StaticResource RestartIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <Button Grid.Column="1" Grid.Row="3" Tag="Start/Stop" Content="{StaticResource PlayIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
         </Grid>
     </Grid>
 </Window>

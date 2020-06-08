@@ -63,10 +63,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GrayButtonResourceDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +106,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

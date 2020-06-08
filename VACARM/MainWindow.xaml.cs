@@ -22,6 +22,8 @@ namespace VACARM
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string SelectedTool;
+
         public string CurrentDirectoryPath
         {
             get
@@ -39,12 +41,12 @@ namespace VACARM
 
         private void StartEngine()
         {
-            
+            SelectedTool = "Hand";
         }
 
         private void toolBarSelect_Click(object sender, RoutedEventArgs e)
         {
-
+            SelectedTool = ((RadioButton)sender).Tag.ToString();
         }
     }
 }
