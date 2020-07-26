@@ -33,6 +33,8 @@ namespace VACARM
         private string windowName;
         private string path;
 
+        private BipartiteDeviceGraph graph;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string name)
@@ -238,7 +240,7 @@ namespace VACARM
             }
         }
 
-        public RepeaterInfo(DeviceControl capture, DeviceControl render)
+        public RepeaterInfo(DeviceControl capture, DeviceControl render, BipartiteDeviceGraph graph)
         {
             captureContext = new MenuItem();
             captureContext.Header = render.DeviceName;
@@ -295,11 +297,13 @@ namespace VACARM
             ResyncAt = DefaultData.ResyncAt;
             WindowName = DefaultData.WindowName;
             Path = DefaultData.RepeaterPath;
+
+            this.graph = graph;
         }
 
         private void context_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            RepeaterMenu menu = new RepeaterMenu(this);
+            RepeaterMenu menu = new RepeaterMenu(this, graph);
             menu.Owner = MainWindow.GraphMap.Parent as Window;
 
             menu.ShowDialog();

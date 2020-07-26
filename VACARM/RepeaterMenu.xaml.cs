@@ -21,6 +21,8 @@ namespace VACARM
     /// </summary>
     public partial class RepeaterMenu : Window
     {
+        private BipartiteDeviceGraph graph;
+
         private RepeaterInfo info;
 
         public RepeaterInfo Info
@@ -43,7 +45,7 @@ namespace VACARM
             }
         }
 
-        public RepeaterMenu(RepeaterInfo info)
+        public RepeaterMenu(RepeaterInfo info, BipartiteDeviceGraph graph)
         {
             InitializeComponent();
 
@@ -74,6 +76,7 @@ namespace VACARM
 
             Info = info;
             DataContext = Info;
+            this.graph = graph;
         }
 
         private void Okay_Click(object sender, RoutedEventArgs e)
@@ -81,6 +84,11 @@ namespace VACARM
             Close();
         }
 
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            graph.RemoveEdge(info.Capture, info.Render);
+            Close();
+        }
     }
 }
 [ValueConversion(typeof(int), typeof(bool))]

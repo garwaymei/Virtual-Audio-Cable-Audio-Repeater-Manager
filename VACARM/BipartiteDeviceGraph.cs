@@ -69,7 +69,7 @@ namespace VACARM
                 render = device1;
             }
 
-            RepeaterInfo repeater = new RepeaterInfo(capture, render);
+            RepeaterInfo repeater = new RepeaterInfo(capture, render, this);
 
             AddEdge(device1, device2, repeater);
         }
@@ -192,7 +192,7 @@ namespace VACARM
 
                 if (capture == null || render == null) continue;
 
-                RepeaterInfo repeater = new RepeaterInfo(capture, render);
+                RepeaterInfo repeater = new RepeaterInfo(capture, render, graph);
                 repeater.SetData(data);
 
                 graph.AddEdge(capture, render, repeater);

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VACARM"
         mc:Ignorable="d"
-        Title="RepeaterMenu" Height="367.5" Width="300"
+        Title="RepeaterMenu" Height="393.5" Width="300"
         Background="#222222" Foreground="White">
     <StackPanel Margin="10">
         <TextBlock Text="Sample rate"/>
@@ -41,7 +41,7 @@
         <TextBox x:Name="prefill" Text="{Binding Path=Prefill, Mode=TwoWay}"/>
         <TextBlock Text="Resync at, %"/>
         <TextBox x:Name="resyncAt" Text="{Binding Path=ResyncAt, Mode=TwoWay}"/>
-
+        <Button x:Name="deleteButton" Content="Delete Link" Click="deleteButton_Click"/>
         <Grid Margin="150 10 0 0">
             <Button Content="Okay" Click="Okay_Click"/>
         </Grid>
