@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DefaultData.cs" />
+    <Compile Include="RepeaterInfo.cs" />
+    <Compile Include="RepeaterMenu.xaml.cs">
+      <DependentUpon>RepeaterMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddDeviceDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeviceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -67,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddDeviceDialog.xaml.cs">
+      <DependentUpon>AddDeviceDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -75,10 +88,15 @@
     <Compile Include="DeviceControl.xaml.cs">
       <DependentUpon>DeviceControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeviceList.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RepeaterMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -108,31 +126,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="hand.png" />
+    <Resource Include="icons\hand.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="link.png" />
+    <Resource Include="icons\link.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="add.png" />
+    <Resource Include="icons\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="remove.png" />
+    <Resource Include="icons\remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="restart.png" />
+    <Resource Include="icons\restart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="load.png" />
+    <Resource Include="icons\load.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="save.png" />
+    <Resource Include="icons\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="play.png" />
+    <Resource Include="icons\play.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="pause.png" />
+    <Resource Include="icons\pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

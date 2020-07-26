@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\App.xaml
-2-1090090955
+4-1980229465
 
-7518434587
-151639716179
-DeviceControl.xaml;MainWindow.xaml;
+121110624645
+16-1630853759
+AddDeviceDialog.xaml;DeviceControl.xaml;MainWindow.xaml;RepeaterMenu.xaml;
 
 False
 

@@ -5,20 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VACARM"
              mc:Ignorable="d"
-             Height="100" Width="250" Foreground="White"
-             FontSize="11" FontWeight="DemiBold">
-
-    <Border CornerRadius="15" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#555555" Width="250" Height="100">
-        <Grid>
-            <Rectangle Width="250" Height="20" Margin="-5,-5,-5,75">
-                <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop x:Name="deviceColor" Color="#555555" Offset="0.0" />
-                        <GradientStop Color="#555555" Offset="0.90" />
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <TextBlock Name="deviceName" Text="" Margin="1,-5,0,75"/>
+             Height="75" Width="175" Foreground="Black"
+             FontSize="11" FontWeight="DemiBold"
+             MouseLeftButtonDown="UserControl_MouseLeftButtonDown"
+             MouseLeftButtonUp="UserControl_MouseLeftButtonUp"
+             MouseMove="UserControl_PreviewMouseMove"
+             MouseLeave="UserControl_PreviewMouseMove">
+    <UserControl.Style>
+        <Style>
+            <Setter Property="Canvas.Left" Value="{Binding Left,
+                                      RelativeSource={RelativeSource Self},
+                                      Mode=TwoWay,
+                                      NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <Setter Property="Canvas.Top" Value="{Binding Top,
+                                      RelativeSource={RelativeSource Self}, 
+                                      Mode=TwoWay,
+                                      NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+        </Style>
+    </UserControl.Style>
+    <Border CornerRadius="16" x:Name="deviceBackground">
+        <Grid Margin="5">
+            <TextBlock x:Name="txtDeviceName"/>
         </Grid>
     </Border>
 </UserControl>

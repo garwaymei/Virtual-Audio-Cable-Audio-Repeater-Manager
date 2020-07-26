@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="VACARM" 
         Height="720" Width="1280"
-        Background="#222222" Foreground="White" FontSize="16">
+        Background="#222222" Foreground="White" FontSize="16"
+        KeyUp="Window_KeyUp"
+        Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="GraySquareToggleButtonStyle" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="#222222"/>
@@ -76,15 +78,15 @@
             </Style.Triggers>
         </Style>
 
-        <BitmapImage x:Key="HandIcon" x:Shared="False" UriSource="hand.png"/>
-        <BitmapImage x:Key="LinkIcon" x:Shared="False" UriSource="link.png"/>
-        <BitmapImage x:Key="AddIcon" x:Shared="False" UriSource="add.png"/>
-        <BitmapImage x:Key="RemoveIcon" x:Shared="False" UriSource="remove.png"/>
-        <BitmapImage x:Key="RestartIcon" x:Shared="False" UriSource="restart.png"/>
-        <BitmapImage x:Key="LoadIcon" x:Shared="False" UriSource="load.png"/>
-        <BitmapImage x:Key="SaveIcon" x:Shared="False" UriSource="save.png"/>
-        <BitmapImage x:Key="PlayIcon" x:Shared="False" UriSource="play.png"/>
-        <BitmapImage x:Key="PauseIcon" x:Shared="False" UriSource="pause.png"/>
+        <BitmapImage x:Key="HandIcon" x:Shared="False" UriSource="icons\hand.png"/>
+        <BitmapImage x:Key="LinkIcon" x:Shared="False" UriSource="icons\link.png"/>
+        <BitmapImage x:Key="AddIcon" x:Shared="False" UriSource="icons\add.png"/>
+        <BitmapImage x:Key="RemoveIcon" x:Shared="False" UriSource="icons\remove.png"/>
+        <BitmapImage x:Key="RestartIcon" x:Shared="False" UriSource="icons\restart.png"/>
+        <BitmapImage x:Key="LoadIcon" x:Shared="False" UriSource="icons\load.png"/>
+        <BitmapImage x:Key="SaveIcon" x:Shared="False" UriSource="icons\save.png"/>
+        <BitmapImage x:Key="PlayIcon" x:Shared="False" UriSource="icons\play.png"/>
+        <BitmapImage x:Key="PauseIcon" x:Shared="False" UriSource="icons\pause.png"/>
 
     </Window.Resources>
 
@@ -95,7 +97,8 @@
         </Grid.ColumnDefinitions>
 
         <!-- Graph area -->
-        <Canvas x:Name="graphCanvas" Grid.Column="1" Background="#111111"/>
+        <Canvas x:Name="graphCanvas" Grid.Column="1" Background="#111111" 
+                PreviewMouseLeftButtonUp="graphCanvas_MouseLeftButtonClick"/>
 
         <!-- Buttons -->
         <Grid Grid.Column="0" Height="154" VerticalAlignment="Top">
@@ -110,14 +113,14 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <RadioButton Grid.Column="0" Grid.Row="0" Tag="Hand" Content="{StaticResource HandIcon}" Style="{StaticResource GraySquareToggleButtonStyle}" IsChecked="True"/>
-            <RadioButton Grid.Column="1" Grid.Row="0" Tag="Link" Content="{StaticResource LinkIcon}" Style="{StaticResource GraySquareToggleButtonStyle}"/>
-            <Button Grid.Column="0" Grid.Row="1" Tag="Load Graph" Content="{StaticResource LoadIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
-            <Button Grid.Column="1" Grid.Row="1" Tag="Save Graph" Content="{StaticResource SaveIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
-            <Button Grid.Column="0" Grid.Row="2" Tag="Add Device" Content="{StaticResource AddIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
-            <Button Grid.Column="1" Grid.Row="2" Tag="Remove Device" Content="{StaticResource RemoveIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
-            <Button Grid.Column="0" Grid.Row="3" Tag="Restart Engine" Content="{StaticResource RestartIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
-            <Button Grid.Column="1" Grid.Row="3" Tag="Start/Stop" Content="{StaticResource PlayIcon}" Style="{StaticResource GraySquareButtonStyle}"/>
+            <RadioButton x:Name="handTool" Grid.Column="0" Grid.Row="0" Tag="Hand" Content="{StaticResource HandIcon}" Style="{StaticResource GraySquareToggleButtonStyle}" IsChecked="True"/>
+            <RadioButton x:Name="linkTool" Grid.Column="1" Grid.Row="0" Tag="Link" Content="{StaticResource LinkIcon}" Style="{StaticResource GraySquareToggleButtonStyle}"/>
+            <Button Grid.Column="0" Grid.Row="1" Tag="Load Graph" Content="{StaticResource LoadIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="loadGraph_Click"/>
+            <Button Grid.Column="1" Grid.Row="1" Tag="Save Graph" Content="{StaticResource SaveIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="saveGraph_Click"/>
+            <Button Grid.Column="0" Grid.Row="2" Tag="Add Device" Content="{StaticResource AddIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="addDevice_Click"/>
+            <Button Grid.Column="1" Grid.Row="2" Tag="Remove Device" Content="{StaticResource RemoveIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="removeDevice_Click"/>
+            <Button Grid.Column="0" Grid.Row="3" Tag="Restart Engine" Content="{StaticResource RestartIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="restart_Click"/>
+            <Button x:Name="startStopTool" Grid.Column="1" Grid.Row="3" Tag="Start/Stop" Content="{StaticResource PlayIcon}" Style="{StaticResource GraySquareButtonStyle}" Click="startStop_Click"/>
         </Grid>
     </Grid>
 </Window>
