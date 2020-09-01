@@ -128,7 +128,7 @@ namespace VACARM
         {
             foreach (RepeaterInfo info in Graph.GetEdges())
             {
-                if (info.Capture.State != DeviceState.Active || info.Render.State != DeviceState.Active) return;
+                if (info.Capture.State != DeviceState.Active || info.Render.State != DeviceState.Active) continue;
 
                 RunCommand(info.ToCommand());
                 activeRepeaters.Add(info.WindowName);

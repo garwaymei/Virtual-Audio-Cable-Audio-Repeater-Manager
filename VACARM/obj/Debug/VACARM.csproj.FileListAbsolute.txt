@@ -35,3 +35,4 @@ F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debu
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\AddDeviceDialog.baml
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\RepeaterMenu.g.cs
 F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\RepeaterMenu.baml
+F:\Programming\VACARM\Virtual-Audio-Cable-Audio-Repeater-Manager\VACARM\obj\Debug\VACARM.csproj.CoreCompileInputs.cache
